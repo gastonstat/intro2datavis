@@ -1,0 +1,69 @@
+% get rid of junk
+\usetheme{default}
+\usefonttheme[onlymath]{serif}
+\beamertemplatenavigationsymbolsempty
+
+% define a bunch of colors
+\definecolor{offwhite}{RGB}{255,250,240}
+\definecolor{gray}{RGB}{155,155,155}
+\definecolor{foreground}{RGB}{80,80,80}
+\definecolor{background}{RGB}{255,255,255}
+%\definecolor{title}{RGB}{255,199,0}
+\definecolor{title}{RGB}{89,132,212}
+%\definecolor{subtitle}{RGB}{89,132,212}
+\definecolor{subtitle}{RGB}{255,199,0}
+\definecolor{hilit}{RGB}{248,117,79}
+\definecolor{vhilit}{RGB}{255,111,207}
+\definecolor{lolit}{RGB}{200,200,200}
+\definecolor{lit}{RGB}{255,199,0}
+\definecolor{mdlit}{RGB}{89,132,212}
+\definecolor{link}{RGB}{248,117,79}
+
+% a few color macros
+\newcommand{\hilit}{\color{hilit}}
+\newcommand{\vhilit}{\color{vhilit}}
+\newcommand{\lit}{\color{lit}}
+\newcommand{\mdlit}{\color{mdlit}}
+\newcommand{\lolit}{\color{lolit}}
+
+% use those colors
+\setbeamercolor{titlelike}{fg=title}
+\setbeamercolor{subtitle}{fg=subtitle}
+\setbeamercolor{frametitle}{fg=gray}
+%\setbeamercolor{structure}{fg=subtitle}
+\setbeamercolor{structure}{fg=title}
+\setbeamercolor{institute}{fg=lolit}
+\setbeamercolor{normal text}{fg=foreground,bg=background}
+\setbeamertemplate{itemize subitem}{{\textendash}}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subitem}{size=\small}
+
+% center title of slides
+\setbeamertemplate{blocks}[rounded]
+\setbeamertemplate{frametitle}[default][center]
+
+% page number
+\setbeamerfont{page number in foot}{size=\footnotesize}
+\setbeamertemplate{footline}[frame number]
+
+% default link color
+\hypersetup{colorlinks, urlcolor={link}}
+
+% a few macros
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\hicode}[1]{{\hilit \texttt{#1}}}
+\newcommand{\locode}[1]{{\lolit \texttt{#1}}}
+\newcommand{\bb}[1]{\begin{block}{#1}}
+\newcommand{\eb}{\end{block}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\bbi}{\vspace{4pt} \begin{itemize} \itemsep8pt}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bv}{\begin{verbatim}}
+\newcommand{\ev}{\end{verbatim}}
+\newcommand{\ig}{\includegraphics}
+\newcommand{\subt}[1]{{\footnotesize \color{subtitle} {#1}}}
+\newcommand{\ttsm}{\tt \small}
+\newcommand{\ttfn}{\tt \footnotesize}
+\newcommand{\figh}[2]{\centerline{\includegraphics[height=#2\textheight]{#1}}}
+\newcommand{\figw}[2]{\centerline{\includegraphics[width=#2\textwidth]{#1}}}
+
