@@ -1,0 +1,589 @@
+\documentclass[12pt]{beamer}
+\usepackage{tikz}
+
+% make it pretty
+\input{../header.tex}
+
+%------------------------------------------------
+
+\title{Introduction}
+\subtitle{Intro to Data Visualization}
+\author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
+\institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
+\date{}
+
+\begin{document}
+
+<<setup, include=FALSE>>=
+# smaller font size for chunks
+opts_chunk$set(size = 'footnotesize')
+options(width=87)
+@
+
+% no page number in first slide
+{
+  \setbeamertemplate{footline}{} 
+  \frame{\titlepage} 
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Motivation: \\
+Anscombe Dataset}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+
+Consider some data (four pairs of variables)
+<<echo = FALSE, comment=''>>=
+print(anscombe[ , c(1,5,2,6,3,7,4,8)], print.gap = 2)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\large{\mdlit{What things would you like \\ to calculate for each variable?}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+
+<<echo = FALSE, size='scriptsize'>>=
+summary(anscombe[ , 1:4])
+@
+
+<<echo = FALSE, size='scriptsize'>>=
+summary(anscombe[ , 5:8])
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\large{\mdlit{What things would you like to calculate \\ for each pair of variables (e.g. \code{x1, y1})?}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+
+<<>>=
+cor(anscombe$x1, anscombe$y1)
+cor(anscombe$x2, anscombe$y2)
+cor(anscombe$x3, anscombe$y3)
+cor(anscombe$x4, anscombe$y4)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+
+\bbi
+  \item Mean of \code{x} values = \Sexpr{mean(anscombe$x1)}
+  \item Mean of \code{y} values = \Sexpr{mean(anscombe$y1)}
+  \item least squares equation: $y = 3 + 0.5x$
+  \item Sum of squared errors: 110
+  \item Correlation coefficient: \Sexpr{cor(anscombe$x1, anscombe$y1)}
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+
+Using only numerical reduction methods in data analyses is far too limiting
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Why Graphics?}
+
+Are you able to see any patterns, associations, relations?
+<<echo = FALSE, size='scriptsize'>>=
+print(anscombe[ , c(1,5,2,6,3,7,4,8)], print.gap = 2)
+@
+
+{\small Famous dataset \code{"anscombe"} (four data sets)}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Why Graphics?}
+
+How are these two variables associated?
+
+\bigskip
+What does these data values look like?
+<<echo = FALSE, size='scriptsize', comment=''>>=
+print(anscombe[ , c(1,5)], print.gap = 2)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{}
+
+<<fig.width=6, fig.height=5, out.width='.9\\linewidth', out.height='.7\\linewidth', fig.align='center', echo=FALSE>>=
+ops <- par(mfrow = c(2, 2))
+# plot factor
+for (j in 1:4) {
+  op <- par(mar = c(4, 4, 1, 1))
+  plot(anscombe[, j], anscombe[, j+4], pch = 19, cex = 1.1,
+       col = '#6666ff', las = 1,
+       xlab = sprintf("x%s", j), 
+       ylab = sprintf("y%s", j))
+  par(op)
+}
+par(ops)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Visualization}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{images/eye-photo.pdf}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visualize}
+
+\bb{Visualize}
+\bbi
+  \item To form a mental image of
+  \item To make visible
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visualization}
+
+\Large Process of representing information or ideas by diagrams or graphs.
+
+\textit{Ross Ihaka}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visualization}
+
+\Large To convey information through visual representations
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is visualization?}
+
+\bb{Definition by OED}
+The action or fact of visualizing; the power or process of forming
+a mental picture or vision of something not actually present to the sight
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is visualization?}
+
+\bb{Definitions}
+\bbi
+  \item The action or process of rendering visible
+  \item Transformation of the symbolic into the geometric 
+  {\lolit McCormick et al 1987}
+  \item The use of computer-generated, possibly interactive visual 
+  representations of data to amplify cognition {\lolit Card, Mackinlay, \& Shneiderman 1999}
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is visualization?}
+
+\bb{Visualization}
+Often referred to as the process of making a graphic or an image.
+Actually it is a cognitive process
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Part of our language}
+
+\bbi
+  \item ``I see what you are saying''
+  \item ``Seeing is believing''
+  \item ``A picture is worth a thousand numbers''
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{images/eye-nerve-brain.pdf}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Vision}
+
+\Large Vision, of our all senses, is the most powerful and efficient 
+{\hilit channel for receiving information} from the physical world.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Why do we create visualizations?}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Why do we create visualizations?}
+
+\bi
+  \item Map
+  \item Record
+  \item Abstract
+  \item Discover
+  \item Clarify
+  \item Interact
+  \item Communicate
+  \item Entertain
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Maps}
+\begin{center}
+\ig[width=9cm]{images/konya-map.pdf}
+
+\small{ \lolit{Konya town map, Turkey (c. 6200 BC)}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Maps}
+\begin{center}
+\ig[width=6cm]{images/anaximander-map.pdf}
+
+\small{ \lolit{Anaximander of Miletus (c. 550 BC)}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Maps}
+\begin{center}
+\ig[width=10cm]{images/planetary-movements.pdf}
+
+\small{ \lolit{Planetary Movements (source: wikimedia)}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Record}
+
+\begin{columns}[t]
+\begin{column}{0.4\textwidth}
+\begin{center}
+\ig[height=6cm]{images/davinci-drawing1.pdf}
+
+\scriptsize{ {\lolit Leonardo Da Vinci (ca. 1500)}}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{center}
+\ig[height=6cm]{images/davinci-drawing2.pdf}
+
+\scriptsize{ {\lolit Leonardo Da Vinci (ca. 1500)}}
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Record}
+\begin{center}
+\ig[height=7cm]{images/curtis-drawing.pdf}
+
+\small{ \lolit{William Curtis (1746-1799)}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Clarify: Stingemore's London Underground (1927)}
+\begin{center}
+\ig[width=9cm]{images/london-subway-map.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Clarify: Harry Beck's London Underground (1933)}
+\begin{center}
+\ig[width=9cm]{images/beck-underground.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Communicate: Hans Rosling}
+\begin{center}
+\ig[width=10cm]{images/hans-rosling.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Main functions of visualizations}
+
+\bi
+  \item \textbf{Record}: store information
+  \bi
+    \item photographs, blueprints, sketches, diagrams
+  \ei
+  \item \textbf{Analyze}: support reasoning about information
+  \bi
+    \item process and calculate
+    \item reason about data
+    \item feedback and interaction
+  \ei
+  \item \textbf{Communication}: convery information to others
+  \bi
+    \item share and persuade
+    \item collaborate and revise
+    \item emphasize important aspects of data
+  \ei
+\ei
+
+{\lolit {\scriptsize based on J. Heer}}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Data Visualization}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[height=\paperheight]{images/cereals.jpg}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Cereals Data Set}
+
+\begin{columns}[t]
+\begin{column}{0.1\textwidth}
+%--- empty space ---%
+\end{column}
+\begin{column}{0.8\textwidth}
+<<cereals, echo=FALSE, size='tiny', comment=''>>=
+cereals = read.csv("../../data/cereals.csv", row.names = 1)
+cereals
+@
+\end{column}
+\begin{column}{0.1\textwidth}
+%--- empty space ---%
+\end{column}
+\end{columns}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Some questions}
+
+\bbi
+  \item Which cereal has the most/lest potassium?
+  \item Is there a relationship between potassium and fiber? \\
+  If so, are there any outliers?
+  \item Which is the ``healthiest'' cereal?
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+
+A key component of computing with data consists of \textbf{Data Visualization}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\begin{center}
+\ig[width=10cm]{images/google-datavis.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+\begin{center}
+\ig[width=8cm]{images/vis_areas.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+
+\begin{quotation}
+``Data visualization is an umbrella term to cover all types of visual 
+representations that support the exploration, examination, and communication
+of data.''
+\end{quotation}
+
+Stephen Few
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Why data visualizations?}
+
+\bbi
+  \item see overall patterns and detailed behavior
+  \item reveal patterns
+  \item identify trends
+  \item identify exceptions and outliers
+  \item summarize information
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+
+Data Visualization
+\bi
+  \item Statistical Graphics?
+  \item Computer Graphics?
+  \item Computer Vision?
+  \item Infographics?
+  \item Data Art?
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization}
+
+{\Large We'll focus on statistical graphics and visual displays of data in 
+science and technology}
+
+\end{frame}
+
+%------------------------------------------------
+
+
+\end{document}
