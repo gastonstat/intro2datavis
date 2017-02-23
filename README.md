@@ -1,7 +1,7 @@
 # Introduction to Data Visualization
 
 This repository contains the materials for an introductory course on 
-Data Visualization (towards Statistical Graphics).
+concepts and principles in Data Visualization (towards Statistical Graphics).
 
 
 ## Contents
