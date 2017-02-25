@@ -4,7 +4,7 @@ This repository contains the materials for an introductory course on
 concepts and principles in Data Visualization (towards Statistical Graphics).
 
 
-## <i class="fa fa-bar-chart" aria-hidden="true"></i> Contents
+## Contents
 
 1. [Introduction](slides/01-introduction/01-introduction.pdf)
 2. [Classic Examples](slides/02-classic-examples/02-classic-examples.pdf)
