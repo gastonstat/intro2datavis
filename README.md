@@ -9,6 +9,7 @@ concepts and principles in Data Visualization (towards Statistical Graphics).
 1. [Introduction](slides/01-introduction/01-introduction.pdf)
 2. [Classic Examples](slides/02-classic-examples/02-classic-examples.pdf)
 3. [Visual System](slides/03-visual-system/03-visual-system.pdf)
+4. [Visual Perception](slides/04-visual-perception/04-visual-perception.pdf)
 
 
 
