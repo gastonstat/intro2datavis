@@ -1,0 +1,765 @@
+\documentclass[12pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{tikz}
+
+% make it pretty
+\input{../header.tex}
+
+%------------------------------------------------
+
+\title{Visual Perception}
+\subtitle{Intro to Data Visualization}
+\author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
+\institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
+\date{}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+% no page number in first slide
+{
+  \setbeamertemplate{footline}{} 
+  \frame{\titlepage} 
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Visual Perception}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Brain}
+\begin{center}
+\ig[width=11cm]{images/psychophysical-system1.pdf}
+\end{center}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is Perception?}
+
+\bbi
+  \item It's a cognitive process.
+  \item Involves interpretation of the world around us.
+  \item Allows us to form mental representations of the environment.
+  \item Our brain makes assumptions about the world to overcome the inherent ambiguity
+in all sensory data.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Many definitions and theories of perception}
+
+\bb{Most theories define perception as the process of:}
+\bbi
+  \item \textbf{Recognizing} (being aware of) sensory information
+  \item \textbf{Organizing} (gathering and storing) sensory information
+  \item \textbf{Interpreting} (binding to knowledge) sensory information
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Brain}
+\begin{center}
+\ig[width=11cm]{images/psychophysical-system2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Brain as a computer}
+
+\bb{Brain as a computer}
+To better understand the process of visual information, it is useful 
+to think about the brain as a computer.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Attention and Memory}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Information Processing and Memory}
+\begin{center}
+\ig[width=11cm]{images/visual-brain-stages.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The brain as a computer}
+
+\bb{Types of memory for processing visual information}
+\bbi
+  \item Iconic memory (visual sensory register) \\
+  {\lolit like the buffer or temporary}
+  \item Short-term memory (working memory) \\
+  {\lolit like the random access memory (RAM)}
+  \item Long-term memory (``permanent'' storage) \\
+  {\lolit like the hard disk}
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Iconic Memory}
+\begin{center}
+\ig[width=11cm]{images/memory-iconic.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Iconic Memory}
+
+\bbi
+  \item The \textbf{iconic memory} is a sort of waiting room where each snapshot of
+  input waits to be passed on to short-term memory.
+  \item Rapid processing: almost automatic and unconscious.
+  \item Also called \textbf{preattentive processing}.
+  \item Extremely fast and parallel processing.
+  \item Processes primitive visual features.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Short-term Memory}
+\begin{center}
+\ig[width=11cm]{images/memory-short-term.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Short-term Memory}
+
+\bbi
+  \item The short-term memory is a sort of RAM.
+  \item This is where conscious mental work is performed to support cognition.
+  \item Information is combined into meaningful visual chunks.
+  \item This memory is temporary and has limited storage capacity.
+  \item Where the attentive process of perception occurs.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Long-term Memory}
+\begin{center}
+\ig[width=11cm]{images/memory-long-term.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Long-term Memory}
+
+\bbi
+  \item The long-term memory is a sort of hard disk.
+  \item It's a dynamic structure that retains everything we know.
+  \item Involves an intricate network of links and cross-references that help
+  us find information.
+  \item Holds our ability to recognize images and detect meaningful patterns.
+  \item When you selectively pay attention to information in working memory,
+  it is likely to get transformed and encoded into long-term memory.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Processing Visual Information}
+\begin{center}
+\ig[width=11cm]{images/visual-brain.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{3 Stages of perceptual processing}
+
+\bbi
+  \item \textit{Iconic memory}: early, parallel detection of color, texture, 
+  shape, and spatial attributes.
+  \item \textit{Short-term memory}: dividing visual fields into regions and 
+  simple patterns.
+  \item \textit{Working-memory}: holding objects in working memory by demands 
+  of active attention.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Illusionss}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Perception and illusions}
+
+Visual representations of objects are often misinterpreted.
+
+\bi
+  \item Illusions are a primary source of misinterpretations.
+  \item They come in a variety of forms.
+  \item Common geometric illusions are:
+  \bi
+    \item distortions of lengths
+    \item distortions of angles
+    \item distortions of areas
+    \item distortions of shapes
+  \ei
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Ponzo illusion}
+\begin{center}
+\ig[height=5cm]{images/illusion-ponzo.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Poggendorf illusion}
+\begin{center}
+\ig[width=8cm]{images/illusion-poggendorf1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Poggendorf illusion}
+\begin{center}
+\ig[width=8cm]{images/illusion-poggendorf2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Zollner illusion}
+\begin{center}
+\ig[height=6cm]{images/illusion-zollner1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Zollner illusion}
+\begin{center}
+\ig[height=6cm]{images/illusion-zollner2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Tichener illusion}
+\begin{center}
+\ig[width=7cm]{images/illusion-tichener.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{A Line Length illusion}
+\begin{center}
+\ig[width=5cm]{images/illusion-line-length.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Perspective illusion}
+\begin{center}
+\ig[height=7cm]{images/illusion-perspective.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The Herman Grid}
+\begin{center}
+\ig[height=6cm]{images/illusion-herman-grid1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The Herman Grid}
+\begin{center}
+\ig[height=6cm]{images/illusion-herman-grid2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Kanizsa illusion}
+\begin{center}
+\ig[height=5cm]{images/illusion-kanizsa.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{More illusions}
+\begin{center}
+\ig[height=7cm]{images/illusion-rotating-wheels.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Kanizsa Illusion}
+\begin{center}
+\ig[height=5cm]{images/illusion-kanizsa.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Perceptual Processing}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Perceptual Processing}
+
+\bbi
+  \item Classic model of information processing
+  \item Simple model for understanding the flow of sensory information
+  \item Processing divided into preattentive and postattentive
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Preattentive Processing}
+
+\bb{About Preattentive Processing}
+  Researchers have discovered a limited set of individual properties that 
+  are detected very rapidly and accurately by the low-level visual system.
+  These properties were initially called \textit{preattentive}. 
+  We now know that attention plays a critical role in what we see.
+  The term \textit{preattentive} continues to be used
+  Preattentive tasks are those performed in less than 200 to 250 milliseconds.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Early Vision -vs- Later Vision}
+\begin{center}
+\ig[height=6cm]{images/early-later-vision.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Early Vision and \\ Preattentive Processing}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Stage 1: Low-level Preattentive Processing}
+
+\bbi
+  \item Arrays of neurons work in parallel
+  \item Requires attention despite the name
+  \item Occurs almost automatically (very fast: $<$ 200-250 ms)
+  \item Information is transitory, briefly held in iconic store
+  \item What matters most is the contrast between features
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Preattentive Processing}
+
+\bb{Preattentive Features}
+Visual features have been identified as preattentive in 
+various experiments in psychology to perform 4 major visual tasks:
+\bi
+  \item target detection
+  \item boundary detection
+  \item region tracking
+  \item counting and estimation
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Orientation}
+\begin{center}
+\ig[height=7cm]{images/preattentive-orientation.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Length-Width}
+\begin{center}
+\ig[height=7cm]{images/preattentive-length-width.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Closure}
+\begin{center}
+\ig[height=7cm]{images/preattentive-closure.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Size}
+\begin{center}
+\ig[height=7cm]{images/preattentive-size.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Curvature}
+\begin{center}
+\ig[height=7cm]{images/preattentive-curvature.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Density}
+\begin{center}
+\ig[height=7cm]{images/preattentive-density.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Number Estimation}
+\begin{center}
+\ig[height=7cm]{images/preattentive-number.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Number Color (hue)}
+\begin{center}
+\ig[height=7cm]{images/preattentive-hue.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Intensity}
+\begin{center}
+\ig[height=7cm]{images/preattentive-intensity.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Intersection}
+\begin{center}
+\ig[height=7cm]{images/preattentive-intersection.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Terminators}
+\begin{center}
+\ig[height=7cm]{images/preattentive-terminators.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Simultaneous contrast}
+\begin{center}
+\ig[height=6cm]{images/simultaneous-contrast.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{How many 5s?}
+\begin{center}
+\ig[width=11cm]{images/how-many-fives1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{How many 5s?}
+\begin{center}
+\ig[width=11cm]{images/how-many-fives2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color}
+\begin{center}
+\ig[width=10cm]{images/preattentive-color.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Shape}
+\begin{center}
+\ig[width=10cm]{images/preattentive-shape.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Conjunction}
+\begin{center}
+\ig[width=10cm]{images/preattentive-conjunction.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Theories of Preattentive Processing}
+
+\bbi
+  \item ``Feature Integration Theory'' by Anne Treisman.
+  \item ``Texton Theory'' by Bela Julesz.
+  \item ``Similarity'' Theory by Quinland and Humphreys.
+  \item ``Guided Search'' Theory by Jeremy Wolfe.
+  \item ``Boolean Map'' Theory by Huang et al.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Later Vision and \\ Postattentive Processing}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Postattentive Processing}
+
+\bb{Preattentive processing asks in part:}
+``What visual properties draw our eyes,
+and therefore our focus of attention''.
+\eb
+
+\vspace{1cm}
+
+\bb{Postattentive processing asks:}
+``What happens to the visual representation of
+an object when we stop attending to it (and look at something else)?''
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Later Vision: Pattern Perception}
+
+\bbi
+  \item Slow serial processing
+  \item Involves working and long-term memory
+  \item A combination of bottom-up feature processing and top-down attentional
+  mechanisms
+  \item Different pathways for object recognition and visually guided motion
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Ron Rensink's examples}
+\begin{center}
+\ig[width=11cm]{images/postattentive-airplane.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Ron Rensink's examples}
+\begin{center}
+\ig[width=11cm]{images/postattentive-market.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Ron Rensink's examples}
+\begin{center}
+\ig[width=11cm]{images/postattentive-corner.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+
+\bbi
+  \item \textbf{Perception in Visualization} by Christopher Healey.
+  \item \textbf{The Functional Art} (chapter 6) by Alberto Cairo.
+  \item \textbf{Visual Language for Designers} (principle 1) by Connie Malamed.
+  \item \textbf{Information Dashboard Design} (chapter 4) by Stephen Few.
+  \item \textbf{Interactive Data Visualization} (chapter 3) by Ward, Grinstein
+  and Keim.
+  \item \textbf{100 Things Every Designer Needs to Know About People} 
+  (chapter 1) by Susan M. Weinschenk.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\end{document}
