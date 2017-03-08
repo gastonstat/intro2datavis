@@ -16,7 +16,7 @@ concepts and principles in Data Visualization (towards Statistical Graphics).
 8. Colorimetry (coming soon)
 9. Using Color (coming soon)
 10. [Effective Charts](slides/10-effective-charts/10-effective-charts.pdf)
-11. Various Examples (coming soon)
+11. [Various Examples](slides/11-various-examples/11-various-examples.pdf)
 12. Graphing Process (coming soon)
 13. Entertainment (coming soon)
 
