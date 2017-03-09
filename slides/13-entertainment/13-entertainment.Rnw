@@ -1,0 +1,365 @@
+\documentclass[12pt]{beamer}
+\usepackage{tikz}
+
+% make it pretty
+\input{../header.tex}
+
+%------------------------------------------------
+
+\title{Entertainment}
+\subtitle{Intro to Data Visualization}
+\author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
+\institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
+\date{}
+
+\begin{document}
+
+% no page number in first slide
+{
+  \setbeamertemplate{footline}{} 
+  \frame{\titlepage} 
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Data Art Visualizations}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Visualization Continuum}
+\begin{center}
+\ig[width=10cm]{images/visual-continuum.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{About Data Art}
+
+\bb{Nathan Yau (Data Points)}
+There's value in entertaining, putting a smile on someone's face, and making 
+people feel something, as much as there is in optimized presentation.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{About Data Art}
+
+\bb{Stephen Few (Perceptual Edge)}
+Data Art: visualizations that strive to entertain or to create aesthetic 
+experiences with little concern for informing.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Some years ago \dots}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{images/corridor.pdf}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{images/moeniafm.pdf}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{I'm an Rtist!}
+\begin{center}
+\ig[height=7cm]{images/blue-rays.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Me and You}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{For your significant other}
+\begin{center}
+\ig[width=11cm]{images/me-and-you.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{For your significant other}
+
+<<me-and-you1, eval = FALSE, size='footnotesize'>>=
+# Number of data points
+n <- 100
+
+# random x-y coordinate values
+set.seed(333)
+x <- rnorm(n)
+y <- rnorm(n, 1, 2)
+
+# scatter-plot
+plot(x, y, type = "n")
+text(x, y, labels = "me & you")
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+
+<<me-and-you1, echo = FALSE, fig.width=8, fig.height=6>>=
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{For your significant other}
+
+<<me-and-you2, eval = FALSE, size='footnotesize'>>=
+# dark gray background
+op <- par(bg = "gray10")
+
+# plot text
+plot(x, y, type = "n")
+text(x, y, 
+     labels = "me & you",
+     col = "white")
+
+# reset default graphical parameters
+par(op)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+
+<<me-and-you2, echo = FALSE, fig.width=8, fig.height=6>>=
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{For your significant other}
+
+<<me-and-you3, eval = FALSE, size='footnotesize'>>=
+# text size and colors
+sizes <- runif(n, 0.5, 3)
+hues <- runif(n, 0.85, 0.95)
+alphas <- runif(n, 0.1, 1)
+
+# plot
+op <- par(bg = "gray10", mar = rep(0, 4))
+plot(x, y, type = "n", axes = FALSE, xlab = '', ylab = '')
+text(x, y, 
+     labels = "me & you",
+     font = 3, 
+     col = hsv(hues, 1, 1, alphas),
+     cex = sizes)
+par(op)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+
+<<me-and-you3, echo = FALSE, fig.width=8, fig.height=6>>=
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Humor}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trustworthiness of Beards}
+\begin{center}
+\ig[width=11cm]{images/beards.pdf}
+
+Designed by Matt McInerney \\
+{\scriptsize \url{http://pixelspread.com/images/beards_trust_2.jpg}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trustworthiness of Beards}
+\begin{center}
+\ig[width=11cm]{images/trustworthy-beards.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trustworthiness of Beards}
+\begin{center}
+\ig[width=11cm]{images/neutral-beards.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trustworthiness of Beards}
+\begin{center}
+\ig[width=11cm]{images/dangerous-beards.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Interesting}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Wind Patterns}
+\begin{center}
+\ig[width=11cm]{images/wind-patterns.pdf}
+
+{\scriptsize \url{http://hint.fm/wind}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Similar Diversity (by Steinweber and Koller)}
+\begin{center}
+\ig[width=11cm]{images/similar-diversity1.pdf}
+
+{\scriptsize \url{http://similardiversity.net/}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\ig[height=7cm]{images/similar-diversity3.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Similar Diversity (by Steinweber and Koller)}
+\begin{center}
+\ig[width=11cm]{images/similar-diversity2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Playing with Arc Diagrams}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+{ % all template changes are local to this group.
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{images/star-wars-illustration.pdf}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Star Wars Original Trilogy}
+\begin{center}
+\ig[width=11cm]{images/star-wars-trilogy.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\ig[height=9cm]{images/star-wars-movie-script.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\ig[width=11cm]{images/star-wars-arc-diagram1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\ig[width=11cm]{images/star-wars-arc-diagram2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\end{document}
