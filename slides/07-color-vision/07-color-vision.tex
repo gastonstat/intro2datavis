@@ -1,0 +1,541 @@
+\documentclass[12pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{tikz}
+
+\input{../header.tex}
+
+%------------------------------------------------
+
+\title{Color Vision}
+\subtitle{Intro to Data Visualization}
+\author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
+\institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
+\date{}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+{
+  \setbeamertemplate{footline}{} % no page number here
+  \frame{
+    \titlepage
+  } 
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Light and Color}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Light Recap}
+
+\bbi
+  \item Light is a form of electromagnetic radiation.
+  \item Electromagnetic radiations are characterized by their wavelength.
+  \item Visible light has wavelengths in a narrow band centered on 600 nanometers.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Electromagnetic Spectrum}
+\begin{center}
+\ig[width=10cm]{images/visible-spectrum.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visible Light}
+
+\bb{Visible Spectrum}
+If the electromagnetic spectrum spanned the distance from Los Angeles to New 
+York City, the part visible to the human eye would span the width of a dime.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visible Light}
+
+\bi
+  \item Our eyes detect wavelengths in a tiny portion of the \textit{EM} spectrum.
+  \item We call this the \textit{visible light spectrum}.
+  \item We perceive short wavelengths as blue.
+  \item We perceive longer wavelengths as red.
+  \item We cannot perceive wavelength beyond the limits of the visible spectrum.
+  \item Shorter wavelengths of ultraviolet light.
+  \item Longer wavelengths of infrarred radiation.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Electromagnetic Spectrum}
+\begin{center}
+\ig[width=9cm]{images/visible-spectrum.jpg}
+
+{\lolit www.astronomersgroup.org/EMspectrum.html}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visible Spectrum}
+\begin{center}
+\ig[width=9cm]{images/spectrum-thirds.pdf}
+
+If the visible spectrum is divided into thirds, the predominant colors are blue, green, and red.
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Some considerations}
+
+\bbi
+  \item Color is part of how we sense the world around us.
+  \item Light enters the eyes.
+  \item It is processed by light receptors (cones and rods).
+  \item And sent via the optic nerves to the brain for further processing and
+  interpretation.
+  \item Light varies in wavelengths, which our eyes and brain interpret as
+  varying colors.
+\ei
+
+\end{frame}
+  
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\ig[height=8cm]{images/larson-cartoon.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Color Vision Theories}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Vision Theories}
+
+There are two complementary color vision theories that explain how we perceive 
+colors, and how our brain ``sees'' colors
+
+\bi
+  \item \textbf{Trichromatic} theory.
+  \item \textbf{Opponent} theory.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Trichromatic Theory}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trichromatic Theory}
+
+\bb{Young-Helmholtz Theory}
+\bbi
+  \item Originally proposed by Thomas Young in 1802.
+  \item Further expanded by Hermann von Helmholtz.
+  \item Human color vision could be explained by the existence of 3 receptors: 
+  Red, Green, and Blue.
+  \item {\scriptsize \url{https://en.wikipedia.org/wiki/Young\%E2\%80\%93Helmholtz_theory}}
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{3 kinds of light receptors}
+\begin{center}
+\ig[width=10cm]{images/young-helmholtz.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trichromatic Theory}
+
+\bbi
+  \item Young suggested that the eye contained different photoreceptor cells.
+  \item Each cell was sensitive to different wavelengths of light in the visible spectrum.
+  \item Young's original theory was based on Red, Green, and Blue receptors.
+  \item We now know that there are really three kinds of color receptors in the eye.
+  \item As a result the 3 kinds of cones in the eye are called \textbf{R}, 
+  \textbf{G}, and \textbf{B}.
+\ei
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Retina Cell Receptors}
+\begin{center}
+\ig[width=11cm]{images/rods-and-cones.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trichromatic Theory}
+
+\bb{Young-Helmholtz Theory}
+Helmholtz used color-matching experiments where participants would alter the 
+amounts of three different wavelengths of light to match a test color.
+
+\vspace{1cm}
+
+Participants could not match the colors if they used only two wavelengths, 
+but could match any color in the spectrum if they used three (Red, Green, Blue).
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Opponent Theory}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Theory}
+
+\bb{Opponent-Process Theory}
+\bbi
+  \item Predates Young-Helmholtz theory. Dates as far back as Leonardo Da Vinci.
+  \item The color pairs red-green and yellow-blue are in opposition.
+  \item No color can simultaneously exhibit both redness and grenness, 
+  or blueness and yellowness.
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Theory}
+
+\bb{Opponent-Process Theory}
+\bbi
+  \item Formally developed by Ewald Hering.
+  \item Hering noted color combinations that we never see \\
+  {\lolit reddish-green or yellowish-blue}
+  \item This theory suggests that color perception is controlled by the 
+  activity of three opponent systems: \\
+  white and black, blue and yellow, and red and green.
+  \item {\scriptsize \url{https://en.wikipedia.org/wiki/Opponent-process_theory}}
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Theory}
+
+\bb{Opponent-Process Theory}
+Colors are created by the eye and brain as combinations of red-green, and 
+yellow-blue color signals.
+\eb
+
+\bb{R-G and B-Y pairs}
+Our eyes and brain create four basic colors: yellow, blue, red, and green, 
+arranged in two pairs.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Pairs of Opponent Theory}
+\begin{center}
+\ig[height=7cm]{images/opponent-colors.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Theory}
+
+\bb{A color can be described by three parameters}
+\bbi
+  \item Where it lies on a light/dark scale
+  \item Where it lies on a red/green scale
+  \item Where it lies on a blue/yellow scale
+\ei
+\eb
+
+These three dimensions, ``green or red,'', ``blue or yellow,'' and 
+brightness, form the foundation for the way our brain perceives color.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Theory}
+
+Our sensation of color comes from nerve cells that send messages to the brain about:
+
+\bi
+  \item The brightness of color.
+  \item Greenness vs. redness. 
+  \item Blueness vs. yellowness.
+  \item Color nerves sense green or red, but never both.
+  \item Likewise color nerves sense blue or yellow, but never both. 
+  \item We never see bluish-yellows or reddish-greens.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Opponency}
+\begin{center}
+\ig[width=11cm]{images/color-opponency.pdf}
+
+{\scriptsize {\lolit C. Ware, ``Visual Thinking for Design''}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Opponent Colors and Television}
+
+\bbi
+  \item Initially, television was only available in black and white.
+  \item Later on, technology became available to make color television.
+  \item Engineers faced the problem of how to transmit the color information but still remain compatible with all the existing black and white sets.
+  \item They chose to add the color information by adding two additional color signals.
+  \item The two signals were the color positions on the opponent red/green and yellow/blue scales.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Evolution of Color Vision}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Evolution of Color Vision}
+
+\bbi
+  \item The human color vision system appears to have evolved in steps.
+  \item Initially our (very remote) ancestors had a single class of light sensitive cells.
+  \item At a point predating the evolution of the mammals this single class of cells differentiated into separate yellow and blue classes.
+  \item Much later, in primates, the class of yellow sensitive cells differentiated into separate red and green sensitive classes.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Primitive Color}
+\begin{center}
+\ig[width=10cm]{images/primitive-color.pdf}
+
+{\scriptsize {\lolit image as it would appear to an animal with just 
+a yellow/blue based vision system}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Primate Color}
+\begin{center}
+\ig[width=10cm]{images/primate-color.pdf}
+
+{\scriptsize {\lolit image as it would appear to a primate with 
+a red/green/blue based vision system}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Primate Color Vision: Searching for Fruits}
+\begin{center}
+\ig[width=11cm]{images/primate-color-vision-fruits.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Fruits and Primate Color Vision}
+
+\bbi
+  \item Natural task facing monkeys foraging for fruit (\textit{a}).
+  \item Typical stimulus array from laboratory: searching for orange circle (\textit{b}).
+  \item Photograph as it would appear to a protanope (\textit{c}).
+  \item Photograph as it would appear to a deuteranope (\textit{d}).
+\ei
+
+{\scriptsize {\lolit Regan et al. (2001) Fruits, foliage and the evolution of primate colour vision. The Philos Trans R Soc Lond B Biol Sci. 356, 229-283.}}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Trichromatic and Opponent Theories}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trichromatic and Opponent Theories}
+
+\bi
+  \item Both theories are complementary
+  \item The Thrichromatic theory applies in the eyes (physical-sensory)
+  \item The Opponent theory applies in the brain (cognition)
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Trichromatic and Opponent Theories}
+
+\bb{Color vision in three major processes}
+\bbi
+  \item \textbf{Trichromatic input}: information is recorded by the responses of 
+  the L, M and S cone cells in the retina.
+  \item \textbf{Opponent output}: responses from the L, M and S cones are converted 
+  into signals for yellowness vs blueness and redness vs greenness, plus total brightness.
+  \item \textbf{Processing for color constancy}: color information from the visual field is analyzed, interpreting object properties (i.e. hue, value and chroma) and lighting properties (i.e. hue, brightness and saturation of the illumination).
+\ei
+\eb
+
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+
+\bbi
+  \item \url{http://www.handprint.com/HP/WCL/color7.html} \\
+  by Bruce MacEvoy
+  \item \textbf{The Dimensions of Colour} by David Briggs
+  \item \textbf{Causes of Color} by WebExhibits \\
+  {\scriptsize \url{http://www.webexhibits.org/causesofcolor/1.html}}
+  \item \textbf{How do we perceive color} by ColoRotate \\
+  {\tiny \url{http://learn.colorotate.org/how-do-we-perceive-color}}
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\end{document}

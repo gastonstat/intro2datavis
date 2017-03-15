@@ -1,7 +1,11 @@
 # Introduction to Data Visualization
 
-This repository contains the materials for an introductory course on 
-concepts and principles in Data Visualization (towards Statistical Graphics).
+This repository contains the slides for an introductory course on 
+concepts and principles in Data Visualization. 
+
+This can serve as foundational material that lays the ground work for 
+a more dedicated course on Statistical Graphics 
+(e.g. statistical graphics with R).
 
 
 ## Contents
@@ -12,7 +16,7 @@ concepts and principles in Data Visualization (towards Statistical Graphics).
 4. [Visual Perception](slides/04-visual-perception/04-visual-perception.pdf)
 5. Perception Visualization (coming soon)
 6. [What is Color?](slides/06-what-is-color/06-what-is-color.pdf)
-7. Color Vision (coming soon)
+7. [Color Vision](slides/07-color-vision/07-color-vision.pdf)
 8. Colorimetry (coming soon)
 9. Using Color (coming soon)
 10. [Effective Charts](slides/10-effective-charts/10-effective-charts.pdf)
