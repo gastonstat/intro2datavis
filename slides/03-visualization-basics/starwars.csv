@@ -1,0 +1,9 @@
+name,gender,height,weight,eyecolor,haircolor,skincolor,homeland,born,died,jedi,species,weapon
+Luke Skywalker,male,1.72,77,blue,blond,fair,Tatooine,19BBY,unk_died,yes_jedi,human,lightsaber
+Leia Organa,female,1.5,49,brown,brown,light,Alderaan,19BBY,unk_died,no_jedi,human,blaster
+Obi-Wan Kenobi,male,1.82,77,bluegray,auburn,fair,Stewjon,57BBY,0BBY,yes_jedi,human,lightsaber
+Han Solo,male,1.8,80,brown,brown,light,Corellia,29BBY,unk_died,no_jedi,human,blaster
+R2-D2,male,0.96,32,NA,NA,NA,Naboo,33BBY,unk_died,no_jedi,droid,unarmed
+C-3PO,male,1.67,75,NA,NA,NA,Tatooine,112BBY,3ABY,no_jedi,droid,unarmed
+Yoda,male,0.66,17,brown,brown,green,unk_planet,896BBY,4ABY,yes_jedi,yoda,lightsaber
+Chewbacca,male,2.28,112,blue,brown,NA,Kashyyyk,200BBY,25ABY,no_jedi,wookiee,bowcaster

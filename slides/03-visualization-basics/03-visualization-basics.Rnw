@@ -1,0 +1,414 @@
+\documentclass[12pt]{beamer}
+\usepackage{tikz}
+
+% make it pretty
+\input{../header.tex}
+
+%------------------------------------------------
+
+\title{Visualization Basics}
+\subtitle{Intro to Data Visualization}
+\author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
+\institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
+\date{}
+
+\begin{document}
+
+<<setup, include=FALSE>>=
+# smaller font size for chunks
+opts_chunk$set(size = 'footnotesize')
+library(ggplot2)
+@
+
+% no page number in first slide
+{
+  \setbeamertemplate{footline}{} 
+  \frame{\titlepage} 
+}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Vision}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Visualization?}
+
+\Large Data visualization is simply {\mdlit \textbf{mapping data}} to {\hilit \textbf{geometric objects}}
+and their {\lit \textbf{visual attributes}}.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Star Wars data set}
+
+<<echo = FALSE, size = 'scriptsize', comment = "">>=
+sw <- read.csv('starwars.csv')
+dat <- sw[ ,c('name', 'gender', 'height', 'weight', 'jedi', 'species', 'weapon')]
+print(dat, print.gap = 2)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{}
+
+<<scatterplot1, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+ggplot(data = dat, aes(x = height, y = weight)) +
+  geom_point(size = 4) + 
+  xlim(0.5, 2.5) +
+  theme_minimal()
+ @
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{}
+
+<<scatterplot2, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+ggplot(data = dat, aes(x = height, y = weight, label = name)) +
+  geom_point(size = 4) +
+  geom_text(vjust = 1.5, hjust = .5, size = 3) +
+  xlim(0.5, 2.5) +
+  theme_minimal()
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{}
+
+<<scatterplot3, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+ggplot(data = dat, aes(x = height, y = weight, label = name)) +
+  geom_point(size = 4, aes(color = jedi)) +
+  geom_text(vjust = 1.5, hjust = .5, size = 3) +
+  xlim(0.5, 2.5) +
+  theme_minimal()
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{}
+
+\Large How does it {\lolit (conceptually)} work?
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\ig[height=8cm]{images/how-does-it-work.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Building a Scatterplot}
+
+\bbi
+  \item \textbf{Dataset}: starwars
+  \item \textbf{Variables}: height, weight, jedi
+  \item \textbf{Geometric objects}: points
+  \item \textbf{Visual attributes}:
+  \bi
+    \item X-axis: height, Y-axis: weight
+    \item Shape: dots
+    \item Color: based on jedi categories
+  \ei
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Mapping Data}
+\begin{center}
+\ig[width=11cm]{images/mapping-data.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Supporting Elements}
+
+\bbi
+  \item Axis labels
+  \item Legends (positions, labels, symbols)
+  \item Choice of colors for points
+  \item Background color (i.e. gray)
+  \item Grid lines (major and minor)
+  \item Axis tick marks
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{In Summary}
+
+\bbi
+  \item Graphs consist of several components
+  \item Some components represent quantitative values (e.g. lines, bars, etc.)
+  \item Some represent categorical values (e.g. color, shape, orientation)
+  \item Some play a supporting role (e.g. grid lines, legends, scales on axes)
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Geometric Objects and \\ their Visual Attributes}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Mapping Fundamentals}
+\begin{center}
+\ig[width=9cm]{images/mapping-fundamentals.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Geometric Objects (primitives)}
+\begin{center}
+\ig[width=9cm]{images/geometric-objects.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Example of Graphs with Geometric Objects}
+\begin{center}
+\ig[width=10cm]{images/geometric-objects-examples.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{ Geometric objects}
+
+Graphical objects (typically) used to encode quantitative values
+
+\bbi
+  \item Points
+  \item Lines
+  \item Bars
+  \item 2D areas and polygons
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Attributes}
+\begin{center}
+\ig[width=9cm]{images/visual-attribs1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Attributes}
+\begin{center}
+\ig[width=9cm]{images/visual-attribs2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Visual Attributes of Geometric objects}
+
+Used to encode both quantitative and categorical
+
+\bbi
+  \item Position
+  \item Color
+  \item Size
+  \item Shape
+  \item Fill pattern
+  \item Border
+  \item Line style
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples of Visual Attributes}
+\begin{center}
+\ig[width=7cm]{images/visual-attribs-examples.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+{\Huge \hilit{Gallery of Charts}} \\
+{\hilit (off-the-self examples)}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from Google Charts}
+\begin{center}
+\ig[width=11cm]{images/gallery-google1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from Google Charts}
+\begin{center}
+\ig[width=11cm]{images/gallery-google2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from Google Charts}
+\begin{center}
+\ig[width=11cm]{images/gallery-google3.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from MS Excel}
+\begin{center}
+\ig[height=7cm]{images/gallery-excel1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from MS Excel}
+\begin{center}
+\ig[width=11cm]{images/gallery-excel2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from MS Excel}
+\begin{center}
+\ig[width=11cm]{images/gallery-excel3.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from MS Excel}
+\begin{center}
+\ig[width=10cm]{images/gallery-excel4.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from ggplot2}
+\begin{center}
+\ig[height=7cm]{images/gallery-ggplot1.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Examples from ggplot2}
+\begin{center}
+\ig[width=11cm]{images/gallery-ggplot2.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{So how do you approach graphing data?}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Creating graphs \dots}
+
+{\Large
+\begin{quotation}
+\noindent With computer technology, anyone can create graphics, but few of us know how to do it well.
+
+\bigskip
+{\small \noindent \textit{Donna Wong}}
+
+\end{quotation}
+}
+
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Approaching graphing data}
+
+With so many chart options, and various software tools, how can you determine what type of graph should you use?
+
+\bigskip
+
+In my opinion, there are a couple of aspects to always keep in mind:
+
+\bi
+  \item Data encoding (core idea )
+  \item Common analytical tasks
+  \item Visual perception basics
+  \item Effective charts suggestions
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\end{document}
