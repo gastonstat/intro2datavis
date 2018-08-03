@@ -1,54 +1,4 @@
-\documentclass[12pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[12pt]{beamer}
 \usepackage{tikz}
 
 % make it pretty
@@ -61,7 +11,7 @@
 \author{\href{http://www.gastonsanchez.com}{Gaston Sanchez}}
 \institute{\href{https://creativecommons.org/licenses/by-sa/4.0/}{\tt \scriptsize \color{foreground} CC BY-SA 4.0}}
 \date{}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
 \begin{document}
 
 % no page number in first slide
@@ -229,30 +179,6 @@ brains are where perception actually occurs.''
   \item The \textbf{eyes} act as image receptors
   \item The \textbf{brain} acts as an image processing and interpreation unit
   \item Understanding how we see requires that we understand both components
-\ei
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Electromagnetic Spectrum}
-\begin{center}
-\ig[width=11cm]{images/visible-spectrum.pdf}
-\end{center}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{A little bit about Light}
-
-\bbi
-  \item Light is electromagnetic radiation
-  \item Light can be described as waves that scatter in different lengths,
-  frequencies, and energy charges
-  \item Our eyes detect only a tiny fraction of the electromagnetic spectrum
-  \item The visible range for humans runs from violet to red
 \ei
 
 \end{frame}
@@ -515,16 +441,6 @@ brains are where perception actually occurs.''
   \item The distribution of rod and cone cells is not uniform across the retina.
   \item The cones are concentrated at the center rear of the retina.
   \item The rods are more evenly distributed away from the retina.
-\ei
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Rods and night vision}
-
-\bbi
   \item In very low light or at night we see using only our rods.
   \item At night we have a blind spot at the center of our visual field.
 \ei
@@ -553,19 +469,6 @@ brains are where perception actually occurs.''
   \item Rods and cones are also facing away from the light source.
   \item In summary: the eyes are actually part of the brain.
 \ei
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{About human vision}
-
-\bb{Sight Mechanics in a nutshell}
-Light delivers images and colors to the brain through nerve cells,
-in the retina of the eye. To get to the retina at the back of the eye, images
-and colors travel through various layers.
-\eb
 
 \end{frame}
 
@@ -691,8 +594,11 @@ and colors travel through various layers.
 \frametitle{Visual Brain}
 
 \bbi
-  \item What your eyes physically perceive is only one part of the equation
-  \item What you see isn't what your brain gets
+  \item What your eyes physically perceive is only one part of the equation.
+  \item Light delivers images and colors to the brain through nerve cells,
+in the retina of the eye.
+  \item What you see isn't what your brain gets. To get to the retina at the back of the eye, images
+and colors travel through various layers.
   \item The images coming to your brain are processed and interpreted
   \item It is really your brain that is ``seeing''
 \ei
