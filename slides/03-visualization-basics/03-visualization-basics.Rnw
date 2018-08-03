@@ -389,7 +389,6 @@ Used to encode both quantitative and categorical
 \end{frame}
 
 %------------------------------------------------
-%------------------------------------------------
 
 \begin{frame}
 \frametitle{Approaching graphing data}
@@ -406,6 +405,196 @@ In my opinion, there are a couple of aspects to always keep in mind:
   \item Visual perception basics
   \item Effective charts suggestions
 \ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Analytical Tasks}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{}
+
+\Large Following Stephen Few's philosophy, creating charts can be approached from the type of analytical task (or analytical pattern) to be used.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Approaching graphing data}
+
+\bi
+  \item Part-to-whole analysis
+  \item Ranking analysis
+  \item Deviation analysis
+  \item Times series (trends in time)
+  \item Distribution analysis
+  \item Correlation analysis
+  \item Multivariate analysis
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{GSW Game Results (regular season 2017-2018)}
+\begin{center}
+\ig[width=10cm]{images/gsw-game-results-2018.pdf}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Pay attention to \dots}
+
+I'll show you some Analytical Task examples using GSW Game Results data. In each graph, pay attention to the following:
+
+\bbi
+  \item type of data (quant, categ)
+  \item geometric object(s)
+  \item visual attribute(s)
+  \item supporting elements
+\ei
+
+<<echo = FALSE, size = 'scriptsize', comment = "">>=
+dat <- read.csv('../../data/gsw-games-2018.csv', stringsAsFactors = FALSE)
+
+# points difference
+dat$Diff <- dat$Tm - dat$Opp
+
+# colors
+res_col <- rep('gray75', nrow(dat))
+res_col[dat$Diff < 0] <- 'tomato'
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Part-to-whole}
+
+<<task_proportion, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# part-to-whole
+barplot(prop.table(table(dat$Result)), las = 1, border = NA,
+        ylab  = 'relative frequency', xlab = 'Result',
+        main = 'GSW Wins and Losses')
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Distribution}
+
+<<task_distrib1, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# Scored points
+hist(dat$Tm, las = 1, col = 'gray80', xlab = 'Points',
+     breaks = 8, axes = FALSE, main = 'Game Results by GSW',
+     xlim = c(70, 150), ylim = c(0, 25))
+axis(side = 1, at = seq(70, 150, 10))
+axis(side = 2, las = 1, at = seq(0, 25, 5))
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Distribution}
+
+<<task_distrib2, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# Scored points
+boxplot(dat$Tm, col = 'gray80', las = 1, xlab = 'Points',
+        horizontal = TRUE, main = 'Game Results by GSW',
+        ylim = c(70, 150))
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Distribution}
+
+<<task_correlation, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# correlation
+plot(dat$Tm, dat$Opp, las = 1, pch = 21, 
+     bg = 'tomato', col = 'white', cex = 2, lwd = 2,
+     xlab = 'Scored', ylab = 'Opponent',
+     main = 'GSW Game Results')
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Deviation}
+
+<<task_deviation, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# deviation
+plot.new()
+plot.window(xlim = c(0, 82), 
+            c(min(dat$Diff), 60))
+axis(side = 1, at = c(0, seq(2, 82, 2)), labels = c(0, seq(2, 82, 2)))
+axis(side = 2, las = 1)
+abline(h = 0, col = 'gray80')
+points(1:nrow(dat), dat$Diff, pch = 20, col = res_col)
+segments(x0 = 1:nrow(dat), y0 = rep(0, nrow(dat)),
+         x1 = 1:nrow(dat), y1 = dat$Diff, las = 1,
+         col = res_col, lwd = 3)
+title(xlab = 'game', ylab = 'point difference', main = 'GSW Wins and Losses')
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Ranking}
+
+<<task_ranking, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+# rankin
+dotchart(sort(dat$Tm), col = 'black', pch = 21, bg = res_col)
+title('GSW Game Results (Ranked)')
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Task: Time trend}
+
+<<task_timeline, echo = FALSE, fig.align = 'center', fig.width=7, fig.height=5.5>>=
+plot.new()
+plot.window(xlim = c(1, 82), ylim = c(1, 82))
+axis(side = 1, at = seq(0, 84, 6))
+axis(side = 2, las = 1, at = seq(0, 84, 6))
+abline(a = 0, b = 1, col = 'gray60', lwd = 2)
+lines(1:nrow(dat), cumsum(dat$Result == 'W'), type = 's', lwd = 3)
+title(xlab = 'game', ylab = 'game')
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Next}
+
+To create effective data visualizations we also need to briefly talk about how our visual system works, as well as some visual perception aspects related with charts and graphs.
 
 \end{frame}
 
