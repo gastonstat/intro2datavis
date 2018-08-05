@@ -12,9 +12,9 @@ a more dedicated course on Statistical Graphics
 
 1. [Introduction](slides/01-introduction/01-introduction.pdf)
 2. [Classic Examples](slides/02-classic-examples/02-classic-examples.pdf)
-3. [Visual System](slides/03-visual-system/03-visual-system.pdf)
-4. [Visual Perception](slides/04-visual-perception/04-visual-perception.pdf)
-5. Perception Visualization (coming soon)
+3. [Visualization Basics](slides/03-visualation-basics/03-visual-system.pdf)
+4. [Visualization Basics System](slides/04-visual-system/04-visual-system.pdf)
+5. [Visual Perception](slides/05-visual-perception/05-visual-perception.pdf)
 6. [What is Color?](slides/06-what-is-color/06-what-is-color.pdf)
 7. [Color Vision](slides/07-color-vision/07-color-vision.pdf)
 8. Colorimetry (coming soon)
