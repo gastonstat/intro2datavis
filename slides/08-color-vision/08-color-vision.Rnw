@@ -472,6 +472,335 @@ a red/green/blue based vision system}}
 
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Colorimetry}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Colorimetry}
+
+\bb{Definition}
+Colorimetry is the science and technology used to quantify and describe 
+physically the human color perception.
+\eb
+
+{\footnotesize \url{https://en.wikipedia.org/wiki/Colorimetry}}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Matching}
+
+\bb{Definition}
+Most of the research behind modern color theory was performed in the 1920s
+and 1930s (primarily in the UK) with two main goals:
+
+\bi
+  \item Understand color vision
+  \item Develop commercial technology for color matching
+\ei
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Some Notes}
+
+\bi
+  \item The experiments that provided the eye-cones sensitivity curves were
+  performed in the second half of the 20th century.
+  \item Any trichromatic theory cannot generate all the colors perceived by 
+  the human brain.
+  \item Three chromatic signals go from the eye to the brain.
+  \item Some processing occurs near the light receptors: two color difference
+  signals plus a lightness level are transmitted to the brain.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Matching Experiments}
+
+\bi
+  \item In the 1920s William Wright and John Guild independently conducted a
+  series of \textbf{color matching experiments}
+  \item These experiments mapped out all the colors that the ``average human''
+  can see
+  \item In 1931, color scientists used Wright's and Guild's results to create
+  the 1931 CIEXYZ color space, a.k.a. \textit{CIE}.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Commission Internationale de L'eclairage}
+
+\bi
+  \item CIE: The International Commission on Illumination.
+  \item Created in 1913.
+  \item Based in Vienna, Austria.
+  \item International authority on light, illumination, colour, and colour spaces.
+  \item Develops standards to measure light and lighting.
+  \item http://www.cie.co.at/
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{CIE Standard Observer}
+
+\bb{CIE standardization}
+In 1931, the \textit{Commission Internationale de l'Eclairage} (CIE) 
+established standard for color representation based on physiological 
+perception of light.
+\eb
+
+\bb{Standard Observer}
+The CIE standards are built on a set of three \textit{color-matching functions}
+collectively called the \textbf{standard observer}, related to the red, green,
+and blue cones in the eye.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{CIE Standard Observer}
+
+\bi
+  \item The tristimulus values depend on the observer's field-of-view.
+  \item CIE defined a color-mapping function called the standard (colorimetric) observer.
+  \item Represents an average human's chromatic response within a 2 degree 
+  arc inside the fovea
+  \item The CIE 1931 Standard Observer function is also known as the CIE 1931 
+  $2\,^{\circ}$ Standard Observer.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{CIE Theoretical Primaries}
+
+\bbi
+  \item The CIE has established a set of theoretical ``red'', ``green'', and 
+  ``blue'' primary colors.
+  \item When combined, the standard primaries cover the full gamut of human
+  color vision.
+  \item A combination of the three can match any monochromatic light source.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{CIE 1931 Primaries Color Matching Functions}
+\begin{center}
+\ig[width=10cm]{images/cie1931-rgb-cmf.pdf}
+
+{\scriptsize {\lolit https://en.wikipedia.org/wiki/CIE\_1931\_color\_space}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Matching Experiments}
+\begin{center}
+\ig[width=11cm]{images/color-matching-experiment.pdf}
+\end{center}
+How much of the primaries R, G and B does it take to match to C?
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Matching Functions}
+
+\bb{Color Matching Experiments}
+The color matching functions were derived by showing subjects color patches 
+and asking them to match the color by adjusting the output of three pure colors.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Negative Color Amounts}
+
+\bbi
+  \item Some colors C cannot be matched by any combination of primary colors.
+  \item A match can be made by adding a small amount of one of the primaries to C.
+  \item When this is the case, the amount of that primary in the match is
+  taken to be negative.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{CIE 1931 XYZ Color Matching Functions}
+\begin{center}
+\ig[width=10cm]{images/cie1931-xyz-cmf.pdf}
+
+{\scriptsize {\lolit https://en.wikipedia.org/wiki/CIE\_1931\_color\_space}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color matching functions}
+
+\bbi
+  \item The CIE's color matching functions are expressed as:
+  $\bar{x}(\lambda)$, $\bar{y}(\lambda)$, and $\bar{z}(\lambda)$
+  \item They are the numerical description of the chromatic response of the 
+  ``standard observer.''
+  \item They can be thought of as the spectral sensitivity curves of three 
+  linear light detectors yielding the values X, Y, Z.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Some Remarks}
+
+\bbi
+  \item Color matching functions were found to vary very little between 
+  individuals.
+  \item This meant that an average of the color matching functions could be
+  used as a description of a \textbf{standard observer}.
+  \item The international color standards organization (the 
+  \textit{Commission Internationale de l'Eclairage} or CIE) adopted the
+  standard observer as the basis for color description.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The CIE XYZ Primaries}
+
+\bbi
+  \item The CIE felt that the negative color amounts which resulted from using 
+  RGB primaries were too difficult for practitioners to handle.
+  \item Instead they adopted an alternative set of ``imaginary'' colour 
+  primaries X, Y and Z and used a mathematical conversion from RGB to XYZ to 
+  obtain the matching functions for XYZ.
+  \item The XYZ matching functions $\bar{x}(\lambda)$, $\bar{y}(\lambda)$,
+  and $\bar{z}(\lambda)$ provide an absolute description of every possible color.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{center}
+\Huge{\hilit{Chromaticity Diagram}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Chromaticity Diagram}
+\begin{center}
+\ig[height=7cm]{images/chromaticity-diagram.pdf}
+
+{\scriptsize {\lolit https://upload.wikimedia.org/wikipedia/commons/b/ba/PlanckianLocus.png}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{About CIE diagram}
+
+\bbi
+  \item Based on the trichromatic theory, a full plot of all visible colors is 
+  a three-dimensional figure.
+  \item However, the concept of color can be divided into two parts:
+  \bi
+    \item Brightness
+    \item Chromaticity
+  \ei
+  \item The CIE XYZ color space was deliberately designed so that the $Y$ 
+  parameter is a measure of the luminance of a color.
+  \item The chromaticity of a color is then specified by the two derived 
+  parameters $x$ and $y$.
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Color Mixing}
+
+\bbi
+  \item The fundamental property of chromaticities is that the chromaticity for 
+  a mixture of two colors lies on the line joining the individual chromaticities.
+  \item This property makes the chromaticity diagram ideal for describing 
+  color mixing
+\ei
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{1960 CIE UCS}
+
+\bb{Limitations of the CIE 1931 chromaticity diagram}
+The chromaticity diagram is not without faults. Soon after it was issued it
+was found that it does not represent color gradations in a uniform matter.
+\eb
+
+\bb{1960 CIE Uniform Chromaticity Space}
+Attempts to transform the original diagram into a more uniform representation
+resulted in the 1960 CIE UCS, where projective transformations of the $x$ and 
+$y$ space distort it to obtain somewhat more uniform $u$ and $v$ coordinates.
+Two standars derive from UCS: CIE 1976 L*a*b or CIELAB, and CIE 1976 L*u*v 
+or CIELUV.
+\eb
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Chromaticity Diagram}
+\begin{center}
+\ig[height=7cm]{images/chromaticity-diagram.pdf}
+\end{center}
+\end{frame}
 
 %------------------------------------------------
 
@@ -486,6 +815,8 @@ a red/green/blue based vision system}}
   {\scriptsize \url{http://www.webexhibits.org/causesofcolor/1.html}}
   \item \textbf{How do we perceive color} by ColoRotate \\
   {\tiny \url{http://learn.colorotate.org/how-do-we-perceive-color}}
+  \item \textbf{A Review of RGB Color Spaces} by Danny Pascale
+  \item {\scriptsize \url{https://en.wikipedia.org/wiki/CIE_1931_color_space}}
 \ei
 
 \end{frame}
