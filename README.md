@@ -1,10 +1,9 @@
 # Introduction to Data Visualization
 
 This repository contains the slides for an introductory course on 
-concepts and principles in Data Visualization. 
+concepts in Data Visualization. 
 
-This can serve as foundational material that lays the ground work for 
-a more dedicated course on Statistical Graphics 
+This material can be used by instructors to support a more dedicated course on Statistical Graphics 
 (e.g. statistical graphics with R).
 
 
